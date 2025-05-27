@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DbConfigModule } from './dbconfig';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -10,7 +11,7 @@ import { DbConfigModule } from './dbconfig';
       envFilePath: '../../.env',
       // ignoreEnvFile: process.env.NODE_ENV === 'production', // Ignore .env in production
 
-    }), DbConfigModule ],
+    }), DbConfigModule, UsersModule ],
   controllers: [AppController],
   providers: [AppService],
 })
