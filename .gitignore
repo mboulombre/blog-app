@@ -1,0 +1,25 @@
+# Ignorer les fichiers d’environnement
+.env
+*.env
+
+# Dossiers Node.js
+node_modules
+backend/node_modules
+frontend/node_modules
+
+# Dossier de build
+dist
+backend/dist
+frontend/.next
+.next
+
+# Logs
+*.log
+
+# Tests coverage
+coverage
+
+# Autres fichiers temporaires
+.DS_Store
+*.swp
+*.swo

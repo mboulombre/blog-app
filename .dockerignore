@@ -1,0 +1,9 @@
+# Empêche l'envoi du fichier .env (très important)
+.env
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+
