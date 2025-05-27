@@ -13,6 +13,7 @@ import { ApiProperty } from '@nestjs/swagger';
 /**
  * Entité représentant un utilisateur.
  */
+export type UserRole = 'user' | 'admin';
 @Entity('users')
 export class User {
   @ApiProperty({ example: 1, description: "Identifiant unique de l'utilisateur" })
@@ -27,7 +28,7 @@ export class User {
   @ApiProperty({ example: 'strongPassword123', description: 'Mot de passe de l’utilisateur', writeOnly: true })
   @IsString()
   @Exclude()
-  @Column()
+  @Column({ select: false })
   password: string;
 
   @ApiProperty({ example: 'John', description: "Prénom de l'utilisateur", required: false })
@@ -41,6 +42,9 @@ export class User {
   @IsOptional()
   @Column({ nullable: true })
   lastName?: string;
+
+  @Column({ type: 'varchar', default: 'user' })
+  role: UserRole;
 
   @ApiProperty({ example: '2025-05-27T14:00:00Z', description: 'Date de création' })
   @CreateDateColumn({ type: 'timestamp' })

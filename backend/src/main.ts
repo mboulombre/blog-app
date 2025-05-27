@@ -11,11 +11,7 @@ async function bootstrap() {
   const port = config.get<number>('PORT') || 5000;
   const globalPrefix = config.get<string>('API_PREFIX') || 'api/v1';
   app.setGlobalPrefix(globalPrefix);
-  app.enableCors({
-    origin: '*', // Allow all origins, adjust as needed for security
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Accept',
-  });
+  app.enableCors();
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true, 
     forbidNonWhitelisted: true,
@@ -25,7 +21,7 @@ async function bootstrap() {
     .setTitle('Simple Blog System')
     .setDescription('API du blog NestJS pour l’évaluation')
     .setVersion('1.0')
-    // .addBearerAuth()
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
@@ -34,3 +30,5 @@ async function bootstrap() {
   console.log(`Server is running on http://localhost:${port}`);
 }
 bootstrap();
+
+
