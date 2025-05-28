@@ -5,6 +5,8 @@ import { AppService } from './app.service';
 import { DbConfigModule } from './dbconfig';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { PostsModule } from './posts/posts.module';
+import { CommentsModule } from './comments/comments.module';
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -12,7 +14,7 @@ import { AuthModule } from './auth/auth.module';
       envFilePath: '../../.env',
       // ignoreEnvFile: process.env.NODE_ENV === 'production', // Ignore .env in production
 
-    }), DbConfigModule, UsersModule, AuthModule ],
+    }), DbConfigModule, UsersModule, AuthModule, PostsModule, CommentsModule ],
   controllers: [AppController],
   providers: [AppService],
 })

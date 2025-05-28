@@ -9,10 +9,10 @@ import {
 import { Exclude } from 'class-transformer';
 import { IsEmail, IsString, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Post } from 'src/posts/entities/post.entity';
+import { Comment } from 'src/comments/entities/comment.entity';
 
-/**
- * Entité représentant un utilisateur.
- */
+
 export type UserRole = 'user' | 'admin';
 @Entity('users')
 export class User {
@@ -54,8 +54,14 @@ export class User {
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: Date;
 
-  // Exemple de relation :
-  // @ApiProperty({ type: () => [Comment], description: "Commentaires de l'utilisateur" })
-  // @OneToMany(() => Comment, comment => comment.user)
-  // comments: Comment[];
+  @ApiProperty({ type: () => [Comment], description: "Commentaires de l'utilisateur" })
+  @OneToMany(() => Comment, comment => comment.author)
+  comments: Comment[];
+
+@OneToMany(() => Post, (post) => post.author)
+@ApiProperty({
+  type: () => [Post],
+  description: 'Liste des posts écrits par l’utilisateur',
+})
+posts: Post[];
 }
