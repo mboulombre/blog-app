@@ -1,6 +1,19 @@
-version: '3.9'
-
 services:
+  frontend:
+    container_name: blog-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/app
+      - my-vol:/app/node_modules/
+    depends_on:
+      - backend
+    env_file:
+      - .env
+
   backend:
     container_name: blog-backend
     build: ./backend
@@ -8,6 +21,7 @@ services:
       - '5000:5000'
     volumes:
       - ./backend:/app
+      - my-vol:/app/node_modules/
     env_file:
       - .env
     depends_on:
@@ -50,4 +64,6 @@ services:
       - "8025:8025" # Web UI
 
 volumes:
+  my-vol:
+    driver: local
   pgdata:
