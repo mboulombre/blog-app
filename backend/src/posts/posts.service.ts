@@ -8,11 +8,14 @@ import { User } from 'src/users/entities/user.entity';
 
 @Injectable()
 export class PostsService {
-  constructor(@InjectRepository(Post) private postsRepo: Repository<Post>) {}
+  constructor(@InjectRepository(Post) private postsRepo: Repository<Post>,
+@InjectRepository(User) private userRepo: Repository<User>) {}
 
   async create(createPostDto: CreatePostDto, user: User): Promise<Post> {
       try {
-            const post = this.postsRepo.create({ ...createPostDto, author: user });
+            // let currentUser =  this.userRepo.findOne({where: {id: user.userId}});
+        
+            const post = this.postsRepo.create({ ...createPostDto, slug:"blog_"+Date(), author: user });
             return this.postsRepo.save(post);
       } catch (error) {
          throw new HttpException('Error creating post', 500);

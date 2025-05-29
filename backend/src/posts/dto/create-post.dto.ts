@@ -1,4 +1,4 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsBoolean, IsNotEmpty, IsOptional } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreatePostDto {
@@ -9,4 +9,8 @@ export class CreatePostDto {
   @ApiProperty( { example: 'mon-premier-article', description: 'Slug URL-friendly unique' })
   @IsNotEmpty()
   content: string;
+   @ApiProperty( { example: 'false' })
+  @IsOptional()
+  @IsBoolean()
+  isPublished: boolean;
 }

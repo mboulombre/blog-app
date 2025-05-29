@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { Repository } from 'typeorm';
+import {UpdateUserDto} from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -20,7 +21,7 @@ export class UsersService {
      */
    async  findAll(): Promise<User[]> {
         try {
-          let getAllUsers = this.usersRepository.find();
+          let getAllUsers = this.usersRepository.find({relations:["comments"]});
             return getAllUsers;
         } catch (error) {
             throw new Error('Could not fetch users'+ error);
@@ -34,11 +35,12 @@ export class UsersService {
      * @returns A promise that resolves to the `User` entity if found, or null if not found.
      * @throws {Error} Throws an error if the user cannot be fetched.
      */
-    async findOne(id:  number): Promise<User | null> {
+    async update(id:  number, updateUserDto: UpdateUserDto) {
         try {
            let  getUser =  this.usersRepository.findOne({ where: { id } });
             if(!getUser)  throw new  NotFoundException('User not found');
-            return getUser;
+            let user =  this.usersRepository.update(id, updateUserDto);
+            return user;
         } catch (error) {
             throw new Error('Could not fetch user with ID ' + id + ': ' + error);
         }
@@ -47,8 +49,9 @@ export class UsersService {
 
       async findByEmail(email: string): Promise<User | undefined> {
      try {
-           let  getUser = this.usersRepository.findOne({ where: { email } });
+           let  getUser = this.usersRepository.findOne({ where: { email: email } });
              if (!getUser) throw new  NotFoundException('User not found');
+            //  delete (await getUser).password;
             return getUser;
      } catch (error) {
             throw new Error('Could not fetch user with email ' + email + ': ' + error);

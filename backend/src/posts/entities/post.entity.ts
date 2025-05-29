@@ -21,7 +21,7 @@ export class Post {
   @Column()
   title: string;
 
-  @ApiProperty({ example: 'mon-premier-article', description: 'Slug URL-friendly unique' })
+  @ApiProperty({ example: 'mon-premier-article', description: 'Slug URL-friendly unique', nullable: true })
   @Column({ unique: true })
   slug: string;
 

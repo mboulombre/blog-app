@@ -25,9 +25,12 @@ export class AuthService {
             const user = await this.usersService.create({
                 email: registerDto.email,
                 password: hashedPassword,
+                lastName: registerDto.lastName,
+                firstName: registerDto.firstName,
+                role: registerDto.role ,
             });
 
-            const payload = { sub: user.id, email: user.email };
+            const payload = { sub: user.id, lastname: user.lastName, role: user.role , email: user.email };
             const token = await this.jwtService.signAsync(payload);
 
             return {
@@ -40,6 +43,8 @@ export class AuthService {
 
     async login(loginDto: LoginDto): Promise<any> {
         const user = await this.usersService.findByEmail(loginDto.email);
+       
+        
         if (!user) {
             throw new ConflictException('Invalid email or password');
         }
@@ -49,7 +54,7 @@ export class AuthService {
             throw new ConflictException('Invalid email or password');
         }
 
-        const payload = { sub: user.id, email: user.email };
+        const payload = { sub: user.id, lastname: user.lastName, role: user.role, email: user.email };
         const token = await this.jwtService.signAsync(payload);
 
         return {
