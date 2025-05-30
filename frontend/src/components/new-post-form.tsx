@@ -35,9 +35,7 @@ export default function NewPostForm() {
       const postData = {
         title: formData.title,
         content: formData.content,
-        excerpt: formData.excerpt || undefined,
-        tags: formData.tags ? formData.tags.split(",").map((tag) => tag.trim()) : undefined,
-        published: formData.published,
+        isPublished: formData.published,
       }
 
       await apiClient.createPost(postData)
@@ -90,17 +88,7 @@ export default function NewPostForm() {
                 />
               </div>
 
-              <div>
-                <Label htmlFor="excerpt">Excerpt</Label>
-                <Textarea
-                  id="excerpt"
-                  name="excerpt"
-                  value={formData.excerpt}
-                  onChange={handleChange}
-                  placeholder="Brief description of your post..."
-                  rows={3}
-                />
-              </div>
+              
 
               <div>
                 <Label htmlFor="content">Content</Label>
@@ -114,18 +102,7 @@ export default function NewPostForm() {
                   required
                 />
               </div>
-
-              <div>
-                <Label htmlFor="tags">Tags</Label>
-                <Input
-                  id="tags"
-                  name="tags"
-                  value={formData.tags}
-                  onChange={handleChange}
-                  placeholder="Enter tags separated by commas..."
-                />
-              </div>
-
+              
               <div>
                 <Label htmlFor="published">Status</Label>
                 <Select

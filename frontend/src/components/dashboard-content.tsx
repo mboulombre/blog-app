@@ -38,8 +38,6 @@ export default function DashboardContent() {
   const [newPost, setNewPost] = useState<CreatePostRequest>({
     title: "",
     content: "",
-    excerpt: "",
-    tags: [],
     published: false,
   })
 
@@ -85,8 +83,6 @@ export default function DashboardContent() {
       setNewPost({
         title: "",
         content: "",
-        excerpt: "",
-        tags: [],
         published: false,
       })
     } catch (err) {
@@ -139,8 +135,8 @@ export default function DashboardContent() {
     return author.name || author.email || "Unknown Author"
   }
 
-  const publishedPosts = posts.filter((p) => p.published !== false)
-  const draftPosts = posts.filter((p) => p.published === false)
+  const publishedPosts = posts.filter((p) => p.isPublished !== false)
+  const draftPosts = posts.filter((p) => p.isPublished === false)
 
   if (loading) {
     return (
@@ -198,16 +194,7 @@ export default function DashboardContent() {
                       required
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="excerpt">Excerpt</Label>
-                    <Textarea
-                      id="excerpt"
-                      value={newPost.excerpt}
-                      onChange={(e) => setNewPost({ ...newPost, excerpt: e.target.value })}
-                      placeholder="Brief description..."
-                      rows={2}
-                    />
-                  </div>
+                
                   <div>
                     <Label htmlFor="content">Content</Label>
                     <Textarea
@@ -219,23 +206,7 @@ export default function DashboardContent() {
                       required
                     />
                   </div>
-                  <div>
-                    <Label htmlFor="tags">Tags (comma separated)</Label>
-                    <Input
-                      id="tags"
-                      value={newPost.tags?.join(", ") || ""}
-                      onChange={(e) =>
-                        setNewPost({
-                          ...newPost,
-                          tags: e.target.value
-                            .split(",")
-                            .map((t) => t.trim())
-                            .filter(Boolean),
-                        })
-                      }
-                      placeholder="tag1, tag2, tag3..."
-                    />
-                  </div>
+                 
                   <div>
                     <Label htmlFor="published">Status</Label>
                     <Select
@@ -353,15 +324,14 @@ export default function DashboardContent() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-medium">{post.title}</h3>
-                          <Badge variant={post.published !== false ? "default" : "secondary"}>
-                            {post.published !== false ? "published" : "draft"}
+                          <Badge variant={post.isPublished !== false ? "default" : "secondary"}>
+                            {post.isPublished !== false ? "published" : "draft"}
                           </Badge>
                         </div>
                         <div className="flex items-center gap-4 text-sm text-muted-foreground">
                           <span>Created: {new Date(post.createdAt).toLocaleDateString()}</span>
                           <span>Author: {getAuthorName(post.author)}</span>
                           <span>ID: {post.id}</span>
-                          {post.tags && post.tags.length > 0 && <span>Tags: {post.tags.slice(0, 2).join(", ")}</span>}
                         </div>
                       </div>
                       <div className="flex gap-2">

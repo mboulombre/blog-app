@@ -47,11 +47,11 @@ const sidebarItems = [
     href: "/dashboard/comments",
     icon: MessageCircle,
   },
-  {
-    title: "Settings",
-    href: "/dashboard/settings",
-    icon: Settings,
-  },
+  // {
+  //   title: "Settings",
+  //   href: "/dashboard/settings",
+  //   icon: Settings,
+  // },
 ]
 
 export default function AdminSidebar() {
@@ -122,11 +122,7 @@ export default function AdminSidebar() {
                     >
                       <item.icon className="w-4 h-4" />
                       {item.title}
-                      {item.title === "Comments" && (
-                        <Badge variant="secondary" className="ml-auto">
-                          0
-                        </Badge>
-                      )}
+                      {item.title === "Comments" }
                     </Link>
                   </li>
                 )

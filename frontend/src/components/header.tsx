@@ -33,27 +33,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">T</span>
+              <span className="text-white font-bold text-sm">D</span>
             </div>
-            <span className="text-xl font-semibold text-gray-900">Tumbas</span>
+            <span className="text-xl font-semibold text-gray-900">D-Tech</span>
           </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/products" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Products
-            </Link>
-            <Link href="/solutions" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Solutions
-            </Link>
-            <Link href="/learn" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Learn
-            </Link>
-            <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">
-              Blog
-            </Link>
-          </nav>
-
+         
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             {isAuthenticated ? (
@@ -115,7 +99,7 @@ export default function Header() {
                   <Link href="/auth/login">Log In</Link>
                 </Button>
                 <Button asChild>
-                  <Link href="/auth/register">Get Started</Link>
+                  <Link href="/auth/register">Register</Link>
                 </Button>
               </>
             )}

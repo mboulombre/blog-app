@@ -61,49 +61,14 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-16">
-        {/* Newsletter Section */}
-        <div className="mb-16">
-          <div className="max-w-md">
-            <h3 className="text-xl font-semibold mb-4">Newsletter</h3>
-            <p className="text-gray-400 mb-6">
-              Subscribe to get the latest Tumbas news, updates, and resources delivered directly to your inbox.
-            </p>
-            <div className="flex gap-2">
-              <Input
-                placeholder="Enter your email"
-                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400"
-              />
-              <Button className="bg-blue-600 hover:bg-blue-700">Subscribe</Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer Links */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-12">
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h4 className="font-semibold mb-4">{section.title}</h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
         {/* Bottom Section */}
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">T</span>
+                <span className="text-white font-bold text-sm">D</span>
               </div>
-              <span className="text-xl font-semibold">Tumbas</span>
+              <span className="text-xl font-semibold">D-Tech</span>
             </div>
 
             <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-400">

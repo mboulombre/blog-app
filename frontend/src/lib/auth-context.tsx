@@ -134,8 +134,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       console.log("Login response:", response)
 
       // Handle different possible response structures
-      const userData = response.user || response.data?.user || response
-      let token = response.token || response.access_token || response.data?.token || response.data?.access_token
+      const userData = response.user || response.data?.user || response;
+      let token = response.access_token;
 
       // If no token in response, check if it's already set by apiClient
       if (!token && typeof window !== "undefined") {

@@ -1,4 +1,6 @@
-const API_BASE_URL = "https://blog-app-dton.onrender.com/api/v1"
+// const API_BASE_URL = "https://blog-app-dton.onrender.com/api/v1"
+const API_BASE_URL = "http://127.0.0.1:5000/api/v1"
+
 
 // Enhanced types based on your actual API
 export interface ApiUser {
@@ -18,14 +20,11 @@ export interface ApiPost {
   id: string
   title: string
   content: string
-  excerpt?: string
   author: string | ApiUser
   authorId?: string
   createdAt: string
   updatedAt?: string
-  tags?: string[]
-  published?: boolean
-  views?: number
+  isPublished?: boolean
   commentsCount?: number
 }
 
@@ -39,7 +38,6 @@ export interface ApiComment {
   updatedAt?: string
   approved?: boolean
   parentId?: string
-  replies?: ApiComment[]
 }
 
 export interface LoginRequest {
@@ -59,8 +57,6 @@ export interface RegisterRequest {
 export interface CreatePostRequest {
   title: string
   content: string
-  excerpt?: string
-  tags?: string[]
   published?: boolean
 }
 
