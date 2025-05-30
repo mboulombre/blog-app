@@ -6,7 +6,7 @@ Application de blog moderne réalisée avec **NestJS** (backend) et **Next.js 15
 
 ## 🌐 Démo en ligne
 
-- 🔗 [Application Frontend (Vercel)](https://blog-app-dev-seven.vercel.app/) 
+- 🔗 [Application Frontend (Vercel)](https://blog-app-zo9d.vercel.app/) 
 - 🔗 [Documentation API (Swagger – Render)](https://blog-app-dton.onrender.com/api/v1)
 
 > ⚠️ **Note** : Le backend est hébergé sur Render. En cas d’inactivité prolongée, le serveur peut se mettre en veille, entraînant un court délai au démarrage de la première requête.
