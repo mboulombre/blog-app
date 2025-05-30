@@ -9,9 +9,8 @@ import { AuthProvider } from "@/lib/auth-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Tumbas - Modern POS Solutions Blog",
-  description: "Discover insights, tips, and trends for modern business efficiency and POS systems",
-    generator: 'v0.dev'
+  title: "D-tech - Modern  Solutions Blog",
+  description: "Discover insights, tips, and trends for modern techno ",
 }
 
 export default function RootLayout({

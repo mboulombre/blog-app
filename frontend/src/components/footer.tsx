@@ -86,7 +86,7 @@ export default function Footer() {
                   LinkedIn
                 </Link>
               </div>
-              <span>© 2024. All Rights Reserved.</span>
+              <span>© 2025. All Rights Reserved.</span>
             </div>
           </div>
         </div>
