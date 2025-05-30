@@ -26,7 +26,7 @@ services:
       - .env
     depends_on:
       - postgres
-      - mailhog
+      # - mailhog
 
   postgres:
     image: postgres:15
@@ -56,12 +56,12 @@ services:
     depends_on:
       - postgres
 
-  mailhog:
-    image: mailhog/mailhog
-    container_name: blog-mailhog
-    ports:
-      - "1025:1025" # SMTP
-      - "8025:8025" # Web UI
+  # mailhog:
+  #   image: mailhog/mailhog
+  #   container_name: blog-mailhog
+  #   ports:
+  #     - "1025:1025" # SMTP
+  #     - "8025:8025" # Web UI
 
 volumes:
   my-vol:
