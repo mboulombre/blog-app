@@ -11,7 +11,7 @@ import { apiClient, type ApiPost } from "@/lib/api"
 
 type PageProps = {
   params: {
-    id: string
+    id: any
   }
 }
 
