@@ -27,8 +27,8 @@ export default function AnalyticsPage() {
     fetchData()
   }, [])
 
-  const publishedPosts = posts.filter((p) => p.published !== false)
-  const draftPosts = posts.filter((p) => p.published === false)
+  const publishedPosts = posts.filter((p) => p.isPublished !== false)
+  const draftPosts = posts.filter((p) => p.isPublished === false)
   const adminUsers = users.filter((u) => u.role === "admin")
   const regularUsers = users.filter((u) => u.role !== "admin")
 
@@ -195,10 +195,10 @@ export default function AnalyticsPage() {
                         </div>
                         <span
                           className={`text-xs px-2 py-1 rounded ${
-                            post.published !== false ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"
+                            post.isPublished !== false ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"
                           }`}
                         >
-                          {post.published !== false ? "Published" : "Draft"}
+                          {post.isPublished !== false ? "Published" : "Draft"}
                         </span>
                       </div>
                     ))}

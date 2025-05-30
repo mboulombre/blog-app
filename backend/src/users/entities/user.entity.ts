@@ -27,7 +27,10 @@ export class User {
 
   @ApiProperty({ example: 'strongPassword123', description: 'Mot de passe de l’utilisateur' })
   @IsString()
+  @Column()
   password: string;
+
+ 
 
   @ApiProperty({ example: 'John', description: "Prénom de l'utilisateur", required: false })
   @IsString()
@@ -44,9 +47,6 @@ export class User {
   @Column({ type: 'varchar', default: 'user' })
   role: UserRole;
 
-
-  // @Column({type: 'simple-array'})
-  // tags: []
 
   @ApiProperty({ example: '2025-05-27T14:00:00Z', description: 'Date de création' })
   @CreateDateColumn({ type: 'timestamp' })

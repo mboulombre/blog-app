@@ -21,8 +21,6 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
   const [formData, setFormData] = useState<CreatePostRequest>({
     title: "",
     content: "",
-    excerpt: "",
-    tags: [],
     published: false,
   })
   const [loading, setLoading] = useState(true)
@@ -38,9 +36,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
         setFormData({
           title: postData.title,
           content: postData.content,
-          excerpt: postData.excerpt || "",
-          tags: postData.tags || [],
-          published: postData.published || false,
+          published: postData.isPublished || false,
         })
       } catch (err) {
         setError("Failed to load post")
@@ -157,17 +153,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="excerpt">Excerpt</Label>
-                  <Textarea
-                    id="excerpt"
-                    name="excerpt"
-                    value={formData.excerpt}
-                    onChange={handleChange}
-                    placeholder="Brief description of your post..."
-                    rows={3}
-                  />
-                </div>
+              
 
                 <div>
                   <Label htmlFor="content">Content</Label>
@@ -182,24 +168,6 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
                   />
                 </div>
 
-                <div>
-                  <Label htmlFor="tags">Tags (comma separated)</Label>
-                  <Input
-                    id="tags"
-                    name="tags"
-                    value={formData.tags?.join(", ") || ""}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        tags: e.target.value
-                          .split(",")
-                          .map((t) => t.trim())
-                          .filter(Boolean),
-                      })
-                    }
-                    placeholder="Enter tags separated by commas..."
-                  />
-                </div>
 
                 <div>
                   <Label htmlFor="published">Status</Label>

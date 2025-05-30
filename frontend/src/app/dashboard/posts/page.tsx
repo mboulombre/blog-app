@@ -59,14 +59,14 @@ export default function PostsManagementPage() {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesStatus =
       statusFilter === "all" ||
-      (statusFilter === "published" && post.published !== false) ||
-      (statusFilter === "draft" && post.published === false)
+      (statusFilter === "published" && post.isPublished !== false) ||
+      (statusFilter === "draft" && post.isPublished === false)
 
     return matchesSearch && matchesStatus
   })
 
-  const publishedCount = posts.filter((p) => p.published !== false).length
-  const draftCount = posts.filter((p) => p.published === false).length
+  const publishedCount = posts.filter((p) => p.isPublished !== false).length
+  const draftCount = posts.filter((p) => p.isPublished === false).length
 
   return (
     <div className="flex">
@@ -178,14 +178,13 @@ export default function PostsManagementPage() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="font-medium">{post.title}</h3>
-                          <Badge variant={post.published !== false ? "default" : "secondary"}>
-                            {post.published !== false ? "published" : "draft"}
+                          <Badge variant={post.isPublished !== false ? "default" : "secondary"}>
+                            {post.isPublished !== false ? "published" : "draft"}
                           </Badge>
                         </div>
                         <div className="flex items-center gap-4 text-sm text-gray-500">
                           <span>By {getAuthorName(post.author)}</span>
                           <span>{new Date(post.createdAt).toLocaleDateString()}</span>
-                          {post.tags && post.tags.length > 0 && <span>Tags: {post.tags.slice(0, 2).join(", ")}</span>}
                         </div>
                       </div>
                       <div className="flex gap-2">
