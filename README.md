@@ -19,8 +19,6 @@ Il permet un déploiement continu (CI/CD) à partir de GitHub, avec un hébergem
 
 ### 🖼️ Frontend (Next.js)
 
-![Aperçu Frontend – Accueil](./screenshots/frontend-home.png)
-*Page d’accueil avec liste des articles*
 
 ![Aperçu Frontend – Login](./screenshots/frontend-login.png)
 *Interface de connexion*
@@ -54,7 +52,7 @@ Il permet un déploiement continu (CI/CD) à partir de GitHub, avec un hébergem
 ## 🧩 Fonctionnalités
 
 ### Public
-- 📰 Liste des articles (pagination)
+- 📰 Liste des articles 
 - 📖 Page de détail d’un article
 - 💬 Voir les commentaires
 
@@ -62,9 +60,6 @@ Il permet un déploiement continu (CI/CD) à partir de GitHub, avec un hébergem
 - 🔐 Inscription / Connexion (JWT)
 - ✏️ Seuls les utilisateurs connectés peuvent commenter
 - 👨‍💼 Seuls les admins peuvent créer des articles
-
-### Admin
-- 📝 Formulaire de création d’articles
 
 ---
 
