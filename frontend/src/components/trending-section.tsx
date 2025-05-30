@@ -102,7 +102,7 @@ export default function TrendingSection() {
         {trendingPosts.map((post) => (
           <div key={post.id} className="flex gap-4">
             <Image
-            src={(post.imageUrl ? `${post.imageUrl}?height=80&width=80` : "/placeholder.svg?height=200&width=300")}
+            src={post.imageUrl ?? "/placeholder.svg?height=200&width=300"}
               alt={post.title}
               width={80}
               height={80}

@@ -89,7 +89,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <Image
-            src={(featuredPost.imageUrl ? `${featuredPost.imageUrl}?height=400&width=600` : "/placeholder.svg?height=200&width=300")}
+            src={featuredPost.imageUrl ?? "/placeholder.svg?height=200&width=300"}
               alt={featuredPost.title}
               width={600}
               height={400}

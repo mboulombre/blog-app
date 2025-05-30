@@ -107,7 +107,7 @@ export default function RecentArticles() {
             <Card key={article.id} className="group hover:shadow-lg transition-shadow duration-300">
               <div className="relative overflow-hidden rounded-t-lg">
                 <Image
-                  src={(article.imageUrl ? `${article.imageUrl}?height=200&width=300` : "/placeholder.svg?height=200&width=300")}
+                  src={article.imageUrl ?? "/placeholder.svg?height=200&width=300"}
                   alt={article.title}
                   width={300}
                   height={200}
