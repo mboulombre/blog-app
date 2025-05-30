@@ -8,7 +8,7 @@ export default function CTASection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <Image
-              src="/placeholder.svg?height=500&width=600"
+              src="/imageb.png?height=500&width=600"
               alt="POS System Dashboard"
               width={600}
               height={500}
