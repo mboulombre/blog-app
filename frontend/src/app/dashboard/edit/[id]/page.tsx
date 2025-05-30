@@ -16,7 +16,11 @@ import Link from "next/link"
 import AuthGuard from "@/components/auth-guard"
 import { apiClient, type ApiPost, type CreatePostRequest } from "@/lib/api"
 
-export default function EditPostPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{ id: string }>
+}
+
+export default function EditPostPage({ params }: PageProps) {
   const [post, setPost] = useState<ApiPost | null>(null)
   const [formData, setFormData] = useState<CreatePostRequest>({
     title: "",
@@ -26,12 +30,23 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState("")
+  const [postId, setPostId] = useState<string>("")
   const router = useRouter()
 
   useEffect(() => {
+    const initializeParams = async () => {
+      const resolvedParams = await params
+      setPostId(resolvedParams.id)
+    }
+    initializeParams()
+  }, [params])
+
+  useEffect(() => {
+     if (!postId) return
+
     const fetchPost = async () => {
       try {
-        const postData = await apiClient.getPost(params.id)
+        const postData = await apiClient.getPost(postId)
         setPost(postData)
         setFormData({
           title: postData.title,
@@ -47,7 +62,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
     }
 
     fetchPost()
-  }, [params.id])
+  }, [postId])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -55,7 +70,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
     setError("")
 
     try {
-      await apiClient.updatePost(params.id, formData)
+      await apiClient.updatePost(postId, formData)
       router.push("/dashboard")
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to update post")
@@ -131,7 +146,7 @@ export default function EditPostPage({ params }: { params: { id: string } }) {
           <Card>
             <CardHeader>
               <CardTitle>Edit Post</CardTitle>
-              <p className="text-sm text-gray-600">Post ID: {params.id}</p>
+              <p className="text-sm text-gray-600">Post ID: {postId}</p>
             </CardHeader>
             <CardContent>
               {error && (

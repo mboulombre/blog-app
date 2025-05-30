@@ -10,7 +10,9 @@ import Image from "next/image"
 import { apiClient, type ApiPost } from "@/lib/api"
 import { useParams } from "next/navigation"
 
-
+interface PageProps {
+  params: Promise<{ id: string }>
+}
 
 // Fix the getAuthorName function to properly handle the user object structure
 const getAuthorName = (author: string | any): string => {
@@ -25,13 +27,24 @@ const getAuthorName = (author: string | any): string => {
   return author.name || author.email || "Unknown Author"
 }
 
-export default  function PostDetailPage( ) {
+export default  function PostDetailPage({ params }: PageProps) {
   const { id } = useParams() as { id: string }
   const [post, setPost] = useState<ApiPost | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [postId, setPostId] = useState<string>("")
 
   useEffect(() => {
+    const initializeParams = async () => {
+      const resolvedParams = await params
+      setPostId(resolvedParams.id)
+    }
+    initializeParams()
+  }, [params])
+
+  useEffect(() => {
+     if (!postId) return
+
     const fetchPost = async () => {
       try {
         const postData = await apiClient.getPost(id)
@@ -45,7 +58,7 @@ export default  function PostDetailPage( ) {
     }
 
     fetchPost()
-  }, [id])
+  }, [postId])
 
   if (loading) {
     return (
@@ -179,7 +192,7 @@ export default  function PostDetailPage( ) {
           </div>
         </article>
 
-        <CommentSection postId={id} />
+        <CommentSection postId={postId} />
       </div>
     </div>
   )
