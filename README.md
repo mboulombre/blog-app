@@ -7,6 +7,12 @@ Un blog moderne avec **NestJS** (backend) et **Next.js 15** (frontend) construit
 🔗 [Démo en ligne (Vercel)](https://your-app.vercel.app) *(Remplace ce lien par ton URL)*  
 🔗 [API Swagger en ligne (Render)](https://blog-app-dton.onrender.com/api/v1)*
 
+🛠️ À propos de l’hébergement Render
+       Le backend de ce projet est déployé sur Render, un service cloud moderne similaire à Heroku.
+Il permet un déploiement continu (CI/CD) à partir de GitHub, avec un hébergement gratuit ou payant, la gestion automatique des bases de données PostgreSQL, et une exposition rapide d'APIs sécurisées (comme la documentation Swagger dans ce projet).
+
+⚠️ Note : Lorsqu’aucune requête n’est envoyée pendant un moment, l’application peut "dormir" (comme Heroku), ce qui peut entraîner un délai de démarrage de quelques secondes à la première requête.
+  
 ---
 
 ## ✨ Aperçu visuel
