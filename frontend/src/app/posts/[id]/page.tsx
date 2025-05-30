@@ -9,7 +9,6 @@ import CommentSection from "@/components/comment-section"
 import Image from "next/image"
 import { apiClient, type ApiPost } from "@/lib/api"
 
- type paramsType = Promise<{ id: string }>;
 
 // Fix the getAuthorName function to properly handle the user object structure
 const getAuthorName = (author: string | any): string => {
@@ -24,11 +23,11 @@ const getAuthorName = (author: string | any): string => {
   return author.name || author.email || "Unknown Author"
 }
 
-export default  function PostDetailPage( { params }: { params: any } ) {
+export default async  function PostDetailPage( { params }: { params: Promise<{ id: string }> } ) {
+   const { id } = await params;
   const [post, setPost] = useState<ApiPost | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-   const id = params.id;
 
   useEffect(() => {
     const fetchPost = async () => {
