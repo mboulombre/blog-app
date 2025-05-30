@@ -1,69 +1,64 @@
 # 📝 Blog App – Fullstack Web Project
 
-Un blog moderne avec **NestJS** (backend) et **Next.js 15** (frontend) construit dans le cadre de l'évaluation technique d'Akieni.
-
-## 🌐 Démo
-
-🔗 [Démo en ligne (Vercel)](https://your-app.vercel.app) *(Remplace ce lien par ton URL)*  
-🔗 [API Swagger en ligne (Render)](https://blog-app-dton.onrender.com/api/v1)*
-
-🛠️ À propos de l’hébergement Render
-       Le backend de ce projet est déployé sur Render, un service cloud moderne similaire à Heroku.
-Il permet un déploiement continu (CI/CD) à partir de GitHub, avec un hébergement gratuit ou payant, la gestion automatique des bases de données PostgreSQL, et une exposition rapide d'APIs sécurisées (comme la documentation Swagger dans ce projet).
-
-⚠️ Note : Lorsqu’aucune requête n’est envoyée pendant un moment, l’application peut "dormir" (comme Heroku), ce qui peut entraîner un délai de démarrage de quelques secondes à la première requête.
-  
----
-
-## ✨ Aperçu visuel
-
-### 🖼️ Frontend (Next.js)
-
-
-![Aperçu Frontend – Login](./screenshots/frontend-login.png)
-*Interface de connexion*
+Application de blog moderne réalisée avec **NestJS** (backend) et **Next.js 15** (frontend), dans le cadre de l’évaluation technique pour Akieni.
 
 ---
 
-### 🖼️ Backend (Swagger & Admin)
+## 🌐 Démo en ligne
+
+- 🔗 [Application Frontend (Vercel)](https://blog-app-dev-seven.vercel.app/) 
+- 🔗 [Documentation API (Swagger – Render)](https://blog-app-dton.onrender.com/api/v1)
+
+> ⚠️ **Note** : Le backend est hébergé sur Render. En cas d’inactivité prolongée, le serveur peut se mettre en veille, entraînant un court délai au démarrage de la première requête.
+
+---
+
+## 👁️ Aperçu visuel
+
+### Frontend (Next.js)
+
+![Aperçu Login](./screenshots/frontend-login.png)
+*Interface de connexion utilisateur*
+
+### Backend (Swagger & Interface Admin)
 
 ![Swagger UI](./screenshots/swagger-docs.png)
-*Documentation Swagger – API sécurisée*
+*Documentation Swagger sécurisée*
 
-![Admin – Création article](./screenshots/admin.png)
-*Interface admin  c*
+![Interface Admin](./screenshots/admin.png)
+*Interface de création d'article (admin uniquement)*
 
 ---
 
-## ⚙️ Tech Stack
+## 🧱 Stack Technique
 
 ### Backend
-- 🚀 NestJS + PostgreSQL + TypeORM
-- 🔐 JWT Auth avec rôles (`admin`, `user`)
-- 📦 Swagger pour la documentation API
+- 🚀 **NestJS**, **PostgreSQL**, **TypeORM**
+- 🔐 Authentification JWT avec rôles (`admin`, `user`)
+- 📘 Documentation Swagger
 
 ### Frontend
-- ⚡ Next.js 15 
-- 🎨 UI moderne responsive avec Tailwind CSS
-- 🔒 Authentification via JWT
+- ⚡ **Next.js 15** (App Router, Server Components)
+- 🎨 UI responsive avec **Tailwind CSS**
+- 🔒 Gestion JWT côté client
 
 ---
 
-## 🧩 Fonctionnalités
+## ✨ Fonctionnalités
 
-### Public
-- 📰 Liste des articles 
-- 📖 Page de détail d’un article
-- 💬 Voir les commentaires
+### Accès public
+- 📰 Affichage de la liste des articles
+- 📖 Consultation des détails d’un article
+- 💬 Visualisation des commentaires
 
-### Auth
-- 🔐 Inscription / Connexion (JWT)
-- ✏️ Seuls les utilisateurs connectés peuvent commenter
-- 👨‍💼 Seuls les admins peuvent créer des articles
+### Accès authentifié
+- 🔐 Inscription / Connexion via JWT
+- ✍️ Ajout de commentaires (utilisateurs connectés uniquement)
+- 🛠️ Création/modification d’articles (réservé aux admins)
 
 ---
 
-## 🛠️ Installation locale
+## ⚙️ Installation locale
 
 ### 1. Cloner le projet
 

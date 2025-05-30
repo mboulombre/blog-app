@@ -18,13 +18,13 @@ export default function CTASection() {
 
           <div className="lg:pl-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Maximize Efficiency
+              🚀 Boostez Votre Efficacité avec la Technologie
               <br />
-              <span className="text-blue-600">-Boost Sales</span>
+              <span className="text-blue-600">-Gérez intelligemment. Innovez dès aujourd'hui.</span>
             </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Upgrade Your Business Today! Streamline Sales, Manage Inventory, and Delight Customers with Our POS
-              System. Experience the difference with our comprehensive solution designed for modern businesses.
+              Passez à la vitesse supérieure grâce à notre solution POS intelligente :
+📊 Gestion d’inventaire, 💼 suivi des ventes en temps réel, et 🤖 automatisation des tâches.
             </p>
             <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3">
               Get Started

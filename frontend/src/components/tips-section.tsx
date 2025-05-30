@@ -16,7 +16,7 @@ export default function TipsSection() {
       try {
         const allPosts = await apiClient.getPosts()
         // Take first 6 posts for tips section
-        setPosts(allPosts.slice(0, 6))
+        setPosts(allPosts.filter((post) => post.isPublished !== false).slice(0, 6))
       } catch (error) {
         console.error("Error fetching posts for tips:", error)
       } finally {
