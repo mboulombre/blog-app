@@ -9,6 +9,12 @@ import CommentSection from "@/components/comment-section"
 import Image from "next/image"
 import { apiClient, type ApiPost } from "@/lib/api"
 
+type PageProps = {
+  params: {
+    id: string
+  }
+}
+
 // Fix the getAuthorName function to properly handle the user object structure
 const getAuthorName = (author: string | any): string => {
   if (typeof author === "string") return author
@@ -22,7 +28,7 @@ const getAuthorName = (author: string | any): string => {
   return author.name || author.email || "Unknown Author"
 }
 
-export default function PostDetailPage({ params }: { params: { id: string } }) {
+export default function PostDetailPage({ params }: PageProps) {
   const [post, setPost] = useState<ApiPost | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -116,14 +122,6 @@ export default function PostDetailPage({ params }: { params: { id: string } }) {
           <div className="p-8">
             {/* Article Header */}
             <header className="mb-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                {post.tags?.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-blue-100 text-blue-800">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-
               <h1 className="text-4xl font-bold text-gray-900 mb-6 leading-tight">{post.title}</h1>
 
               <div className="flex items-center gap-6 text-sm text-gray-600">
