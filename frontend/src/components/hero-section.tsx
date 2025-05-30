@@ -18,7 +18,7 @@ export default function HeroSection() {
         const posts = await apiClient.getPosts()
         if (posts.length > 0) {
           // Get the most recent post
-          const sortedPosts = posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+          const sortedPosts = posts.filter((post) => post.isPublished !== false).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
           setFeaturedPost(sortedPosts[0])
         }
       } catch (error) {
