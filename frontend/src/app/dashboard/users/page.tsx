@@ -195,11 +195,15 @@ export default function UsersManagementPage() {
                               onSubmit={(e) => {
                                 e.preventDefault()
                                 const formData = new FormData(e.currentTarget)
-                                handleUpdateUser(editingUser.id, {
-                                  name: formData.get("name") as string,
-                                  email: formData.get("email") as string,
-                                  role: formData.get("role") as "admin" | "user",
-                                })
+                                if (editingUser && typeof editingUser.id === "string") {
+                                  handleUpdateUser(editingUser.id, {
+                                    name: formData.get("name") as string,
+                                    email: formData.get("email") as string,
+                                    role: formData.get("role") as "admin" | "user",
+                                  })
+                                } else {
+                                  alert("User ID is missing or invalid.")
+                                }
                               }}
                               className="space-y-4"
                             >
