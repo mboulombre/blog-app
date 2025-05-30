@@ -24,11 +24,11 @@ const getAuthorName = (author: string | any): string => {
   return author.name || author.email || "Unknown Author"
 }
 
-export default  function PostDetailPage( params: { id: any } ) {
+export default  function PostDetailPage( { params }: { params: any } ) {
   const [post, setPost] = useState<ApiPost | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-   const { id } =   params;
+   const id = params.id;
 
   useEffect(() => {
     const fetchPost = async () => {
