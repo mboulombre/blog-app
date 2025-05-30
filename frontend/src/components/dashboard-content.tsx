@@ -391,7 +391,7 @@ export default function DashboardContent() {
                           {apiUser.createdAt && <span>Joined: {new Date(apiUser.createdAt).toLocaleDateString()}</span>}
                         </div>
                       </div>
-                      <div className="flex gap-2">
+                      {/* <div className="flex gap-2">
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button variant="outline" size="sm" onClick={() => setEditingUser(apiUser)}>
@@ -408,11 +408,15 @@ export default function DashboardContent() {
                                 onSubmit={(e) => {
                                   e.preventDefault()
                                   const formData = new FormData(e.currentTarget)
-                                  handleUpdateUser(editingUser.id, {
-                                    name: formData.get("name") as string,
-                                    email: formData.get("email") as string,
-                                    role: formData.get("role") as "admin" | "user",
-                                  })
+                                  if (editingUser.id) {
+                                    handleUpdateUser(editingUser.id, {
+                                      name: formData.get("name") as string,
+                                      email: formData.get("email") as string,
+                                      role: formData.get("role") as "admin" | "user",
+                                    })
+                                  } else {
+                                    alert("User ID is missing or invalid.")
+                                  }
                                 }}
                                 className="space-y-4"
                               >
@@ -459,7 +463,7 @@ export default function DashboardContent() {
                             )}
                           </DialogContent>
                         </Dialog>
-                      </div>
+                      </div> */}
                     </div>
                   ))
                 )}

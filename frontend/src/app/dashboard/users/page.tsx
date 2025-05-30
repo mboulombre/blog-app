@@ -180,12 +180,12 @@ export default function UsersManagementPage() {
                         </div>
                       </div>
                       <Dialog>
-                        <DialogTrigger asChild>
+                        {/* <DialogTrigger asChild>
                           <Button variant="outline" size="sm" onClick={() => setEditingUser(user)}>
                             <Settings className="w-4 h-4" />
                           </Button>
-                        </DialogTrigger>
-                        <DialogContent>
+                        </DialogTrigger> */}
+                        {/* <DialogContent>
                           <DialogHeader>
                             <DialogTitle>Edit User</DialogTitle>
                             <DialogDescription>Update user information and permissions</DialogDescription>
@@ -248,7 +248,7 @@ export default function UsersManagementPage() {
                               </div>
                             </form>
                           )}
-                        </DialogContent>
+                        </DialogContent> */}
                       </Dialog>
                     </div>
                   ))}
