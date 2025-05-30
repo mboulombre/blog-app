@@ -14,8 +14,10 @@ export class PostsService {
   async create(createPostDto: CreatePostDto, user: User): Promise<Post> {
       try {
             // let currentUser =  this.userRepo.findOne({where: {id: user.userId}});
-        
-            const post = this.postsRepo.create({ ...createPostDto, slug:"blog_"+Date(), author: user });
+         // Image aléatoire sur la technologie
+         const randomImage = `https://source.unsplash.com/random/800x600?technology&sig=${Math.floor(Math.random() * 1000)}`;
+
+            const post = this.postsRepo.create({ ...createPostDto, imageUrl: randomImage ?? "", slug:"blog_"+Date(), author: user });
             return this.postsRepo.save(post);
       } catch (error) {
          throw new HttpException('Error creating post', 500);
