@@ -2,60 +2,6 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-const footerSections = [
-  {
-    title: "Customers",
-    links: [
-      { name: "Small Business", href: "/customers/small-business" },
-      { name: "Enterprise", href: "/customers/enterprise" },
-      { name: "Retail", href: "/customers/retail" },
-      { name: "Restaurant", href: "/customers/restaurant" },
-      { name: "Trusted Central", href: "/customers/trusted-central" },
-    ],
-  },
-  {
-    title: "Products",
-    links: [
-      { name: "POS Systems", href: "/products/pos-systems" },
-      { name: "Software", href: "/products/software" },
-      { name: "Hardware", href: "/products/hardware" },
-      { name: "Integrations", href: "/products/integrations" },
-      { name: "Payment Plans", href: "/products/payment-plans" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { name: "Blog", href: "/blog" },
-      { name: "Resource Center", href: "/resources" },
-      { name: "Help Center", href: "/help" },
-      { name: "Webinars", href: "/webinars" },
-      { name: "Case Studies", href: "/case-studies" },
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      { name: "About Us", href: "/about" },
-      { name: "Careers", href: "/careers" },
-      { name: "Press", href: "/press" },
-      { name: "Partners", href: "/partners" },
-      { name: "Investors", href: "/investors" },
-      { name: "Licenses", href: "/licenses" },
-      { name: "Leadership Team", href: "/leadership" },
-    ],
-  },
-  {
-    title: "Compare",
-    links: [
-      { name: "vs Square", href: "/compare/square" },
-      { name: "vs Shopify", href: "/compare/shopify" },
-      { name: "vs Toast", href: "/compare/toast" },
-      { name: "vs Clover", href: "/compare/clover" },
-      { name: "vs Revel", href: "/compare/revel" },
-    ],
-  },
-]
 
 export default function Footer() {
   return (
