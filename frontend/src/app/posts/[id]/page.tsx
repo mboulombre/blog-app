@@ -8,6 +8,8 @@ import Link from "next/link"
 import CommentSection from "@/components/comment-section"
 import Image from "next/image"
 import { apiClient, type ApiPost } from "@/lib/api"
+import { useParams } from "next/navigation"
+
 
 
 // Fix the getAuthorName function to properly handle the user object structure
@@ -23,8 +25,8 @@ const getAuthorName = (author: string | any): string => {
   return author.name || author.email || "Unknown Author"
 }
 
-export default async  function PostDetailPage( { params }: { params: Promise<{ id: string }> } ) {
-   const { id } = await params;
+export default  function PostDetailPage( ) {
+  const { id } = useParams() as { id: string }
   const [post, setPost] = useState<ApiPost | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
