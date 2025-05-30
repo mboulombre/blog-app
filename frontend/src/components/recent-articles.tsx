@@ -123,7 +123,7 @@ export default function RecentArticles() {
                   <Link href={`/posts/${article.id}`}>{article.title}</Link>
                 </h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">
-                  {article.excerpt || article.content.substring(0, 150) + "..."}
+                  {article.content || article.content.substring(0, 150) + "..."}
                 </p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">By {getAuthorName(article.author)}</span>

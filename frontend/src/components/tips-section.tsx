@@ -93,7 +93,7 @@ export default function TipsSection() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 mb-4">{post.excerpt || post.content.substring(0, 100) + "..."}</p>
+                <p className="text-gray-600 mb-4">{post.content || post.content.substring(0, 100) + "..."}</p>
                 <div className="flex justify-between items-center">
                   <Button variant="outline" size="sm" asChild>
                     <Link href={`/posts/${post.id}`}>Read more →</Link>

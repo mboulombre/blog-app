@@ -16,9 +16,9 @@ export default function PostList() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const allPosts = await apiClient.getPosts(1, 10)
+        const allPosts = await apiClient.getPosts()
         // Filter published posts
-        const publishedPosts = allPosts.filter((post) => post.published !== false)
+        const publishedPosts = allPosts.filter((post) => post.isPublished !== false)
         setPosts(publishedPosts)
       } catch (err) {
         setError("Failed to load posts")
@@ -115,15 +115,8 @@ export default function PostList() {
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">{post.excerpt || post.content.substring(0, 200) + "..."}</p>
+            <p className="text-muted-foreground mb-4">{post.content || post.content.substring(0, 200) + "..."}</p>
             <div className="flex justify-between items-center">
-              <div className="flex gap-2">
-                {post.tags?.slice(0, 3).map((tag) => (
-                  <Badge key={tag} variant="secondary">
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
               <Button asChild variant="outline">
                 <Link href={`/posts/${post.id}`}>Read More</Link>
               </Button>

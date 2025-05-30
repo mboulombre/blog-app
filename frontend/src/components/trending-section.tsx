@@ -46,12 +46,7 @@ export default function TrendingSection() {
     return author.name || author.email || "Unknown Author"
   }
 
-  const getCategory = (post: ApiPost): string => {
-    if (post.tags && post.tags.length > 0) {
-      return post.tags[0]
-    }
-    return "General"
-  }
+ 
 
   if (loading) {
     return (
@@ -114,7 +109,7 @@ export default function TrendingSection() {
               className="rounded-lg object-cover flex-shrink-0"
             />
             <div className="flex-1">
-              <span className="text-xs text-blue-600 font-medium uppercase tracking-wide">{getCategory(post)}</span>
+              {/* <span className="text-xs text-blue-600 font-medium uppercase tracking-wide">{getCategory(post)}</span> */}
               <h4 className="text-sm font-semibold text-gray-900 mt-1 leading-tight">
                 <Link href={`/posts/${post.id}`} className="hover:text-blue-600 transition-colors">
                   {post.title}
