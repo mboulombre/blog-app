@@ -115,7 +115,7 @@ export default function PostList() {
             </div>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">{post.content || post.content.substring(0, 200) + "..."}</p>
+            <p className="text-muted-foreground mb-4">{ post.content.substring(0, 200) + "..."}</p>
             <div className="flex justify-between items-center">
               <Button asChild variant="outline">
                 <Link href={`/posts/${post.id}`}>Read More</Link>

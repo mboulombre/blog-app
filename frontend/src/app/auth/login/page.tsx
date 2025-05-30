@@ -83,7 +83,7 @@ export default function LoginPage() {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
-                onClick={() => handleDemoLogin("admin@tumbas.com", "password123")}
+                onClick={() => handleDemoLogin("admin@tumbas.com", "admin123")}
                 disabled={loading}
               >
                 <strong>Admin Login:</strong> admin@tumbas.com
@@ -92,7 +92,7 @@ export default function LoginPage() {
                 variant="outline"
                 size="sm"
                 className="w-full justify-start"
-                onClick={() => handleDemoLogin("user@example.com", "password123")}
+                onClick={() => handleDemoLogin("user@example.com", "user123")}
                 disabled={loading}
               >
                 <strong>User Login:</strong> user@example.com

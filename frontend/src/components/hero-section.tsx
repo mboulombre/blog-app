@@ -110,7 +110,7 @@ export default function HeroSection() {
             <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Latest Post</Badge>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">{featuredPost.title}</h1>
             <p className="text-lg text-gray-600 mb-4 leading-relaxed">
-              {featuredPost.content || featuredPost.content.substring(0, 200) + "..."}
+              {featuredPost.content.substring(0, 200) + "..."}
             </p>
             <p className="text-sm text-gray-500 mb-8">
               By {getAuthorName(featuredPost.author)} • {new Date(featuredPost.createdAt).toLocaleDateString()}

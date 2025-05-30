@@ -21,7 +21,7 @@ export default function TrendingSection() {
         const trending = posts
           .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
           .slice(0, 3)
-        setTrendingPosts(trending)
+        setTrendingPosts(trending.filter((post) => post.isPublished !== false ) )
       } catch (err) {
         setError("Failed to load trending posts")
         console.error("Error fetching trending posts:", err)

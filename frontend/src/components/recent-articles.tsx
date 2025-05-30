@@ -21,7 +21,7 @@ export default function RecentArticles() {
         const recentPosts = posts
           .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
           .slice(0, 3)
-        setArticles(recentPosts)
+        setArticles(recentPosts.filter((post) => post.isPublished !== false )   )
       } catch (err) {
         setError("Failed to load articles")
         console.error("Error fetching articles:", err)
@@ -83,7 +83,7 @@ export default function RecentArticles() {
     )
   }
 
-  if (articles.length === 0) {
+  if (articles.length === 0 ) {
     return (
       <section className="bg-white py-16">
         <div className="container mx-auto px-4 text-center">
@@ -123,7 +123,7 @@ export default function RecentArticles() {
                   <Link href={`/posts/${article.id}`}>{article.title}</Link>
                 </h3>
                 <p className="text-gray-600 mb-4 line-clamp-3">
-                  {article.content || article.content.substring(0, 150) + "..."}
+                  { article.content.substring(0, 150) + "..."}
                 </p>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">By {getAuthorName(article.author)}</span>
