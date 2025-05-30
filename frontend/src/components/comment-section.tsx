@@ -300,7 +300,7 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                         )}
                       </div>
 
-                      {/* Reply Form */}
+                      {/* Reply Form
                       {replyingTo === comment.id && (
                         <div className="mt-4 pl-4 border-l-2 border-gray-200">
                           <div className="flex gap-3">
@@ -340,7 +340,7 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                             </div>
                           </div>
                         </div>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>

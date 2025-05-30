@@ -25,6 +25,7 @@ export interface ApiPost {
   updatedAt?: string
   isPublished?: boolean
   commentsCount?: number
+  imageUrl?: string
 }
 
 export interface ApiComment {
