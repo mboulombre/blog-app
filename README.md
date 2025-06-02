@@ -12,6 +12,17 @@ Application de blog moderne réalisée avec **NestJS** (backend) et **Next.js 15
 > ⚠️ **Note** : Le backend est hébergé sur Render. En cas d’inactivité prolongée, le serveur peut se mettre en veille, entraînant un court délai au démarrage de la première requête.
 
 ---
+## 🧪 Comptes de démonstration
+
+### 👤 Utilisateur standard
+
+- **Email** : `user@example.com`  
+- **Mot de passe** : `user123`
+
+### 🛡️ Administrateur
+
+- **Email** : `admin@example.com`  
+- **Mot de passe** : `admin123`
 
 ## 👁️ Aperçu visuel
 
