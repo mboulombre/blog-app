@@ -1,33 +1,25 @@
+# Utilise une version récente compatible avec Next.js
+FROM node:18
 
-FROM node:20-alpine
+# Définir le répertoire de travail
+WORKDIR /src
 
-WORKDIR /app
-
+# Copier les fichiers de dépendances
 COPY package*.json ./
-RUN npm i --legacy-peer-deps
 
-COPY . .
+# Installer les dépendances
 
-RUN npm run build
-
-
-CMD ["npm", "run", "start:dev"]
-FROM node:18-alpine
-
-# Crée le dossier de travail
-WORKDIR /app
-
-# Copie les fichiers de dépendances et installe
-COPY package*.json ./
 RUN npm install
 
-# Copie le reste de l'application
+# Copier le reste du code source
 COPY . .
 
-# Build de l'app
+# Construire l'application Next.js
 RUN npm run build
 
+# Exposer le port 3000
+EXPOSE 3000
 
+# Démarrer l'application
+CMD ["npm", "run", "dev"]
 
-# Lance l'application
-CMD ["npm", "start"]

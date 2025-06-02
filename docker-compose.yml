@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   frontend:
     container_name: blog-frontend
@@ -5,10 +7,10 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - ./frontend:/app
-      - my-vol:/app/node_modules/
+      - /app/node_modules
     depends_on:
       - backend
     env_file:
@@ -16,17 +18,17 @@ services:
 
   backend:
     container_name: blog-backend
-    build: ./backend
+    build:
+      context: ./backend
     ports:
-      - '5000:5000'
+      - "5000:5000"
     volumes:
       - ./backend:/app
-      - my-vol:/app/node_modules/
+      - /app/node_modules
     env_file:
       - .env
     depends_on:
       - postgres
-      # - mailhog
 
   postgres:
     image: postgres:15
@@ -41,7 +43,7 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - '5432:5432'
+      - "5432:5432"
 
   pgadmin:
     image: dpage/pgadmin4
@@ -56,14 +58,5 @@ services:
     depends_on:
       - postgres
 
-  # mailhog:
-  #   image: mailhog/mailhog
-  #   container_name: blog-mailhog
-  #   ports:
-  #     - "1025:1025" # SMTP
-  #     - "8025:8025" # Web UI
-
 volumes:
-  my-vol:
-    driver: local
   pgdata:
