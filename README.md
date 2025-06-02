@@ -20,6 +20,7 @@ Application de blog moderne réalisée avec **NestJS** (backend) et **Next.js 15
 - **Mot de passe** : `user123`
 
 ### 🛡️ Administrateur
+- **Url**: https://dev-app-mocha.vercel.app/dashboard
 
 - **Email** : `admin@example.com`  
 - **Mot de passe** : `admin123`
