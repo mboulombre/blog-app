@@ -20,7 +20,7 @@ Application de blog moderne réalisée avec **NestJS** (backend) et **Next.js 15
 - **Mot de passe** : `user123`
 
 ### 🛡️ Administrateur
-- **Url**: https://dev-app-mocha.vercel.app/dashboard
+ Une fois connecté en tant qu'administrateur, allez à **Url**: https://dev-app-mocha.vercel.app/dashboard. (La résolution du bug pour faire apparaître le bouton dashboard après le login est en cours.)
 
 - **Email** : `admin@example.com`  
 - **Mot de passe** : `admin123`
